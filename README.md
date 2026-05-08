@@ -23,8 +23,6 @@ Página estática com animações GSAP explicando a arquitetura, stack e código
 
 ## 📸 Preview
 
-> **Para adicionar o screenshot:** abra `index.html` no navegador, pressione `F12` → aba **Capture screenshot** (DevTools > ⋮ > Capture full size screenshot), salve como `preview.png` na raiz do projeto e descomente a linha abaixo.
-
 ![Preview do Site](preview.png)
 
 ```
