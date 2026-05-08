@@ -23,7 +23,7 @@ Página estática com animações GSAP explicando a arquitetura, stack e código
 
 ## 📸 Preview
 
-![Preview do Site](preview.png.png)
+![Preview do Site](preview.png)
 
 ## 🎯 Sobre Este Repositório
 
