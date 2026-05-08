@@ -25,26 +25,6 @@ Página estática com animações GSAP explicando a arquitetura, stack e código
 
 ![Preview do Site](preview.png)
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  ✓ ChecklistSystem   Sobre  Features  Stack  Arquitetura    │
-├──────────────────────────────┬──────────────────────────────┤
-│                              │  ┌──────────────────────┐    │
-│  Full-Stack · React +        │  │ ● ● ●  localhost:5173 │    │
-│  Node.js + Supabase          │  ├──────┬───────────────┤    │
-│                              │  │✓Chk  │  Dashboard    │    │
-│  Sistema de                  │  │──────│  ⚠️ 3 abertas  │    │
-│  Checklist.                  │  │📊    │ ┌──┬──┬──┬──┐ │    │
-│                              │  │📋    │ │12│ 3│ 7│ 2│ │    │
-│  ⚛️ React  🎬 GSAP  🗄️ Supa  │  │📤    │ └──┴──┴──┴──┘ │    │
-│                              │  │⚠️ [3]│  Por Filial   │    │
-│  [Ver Funcionalidades ↓]     │  └──────┴───────────────┘    │
-│  [Ver Código]                │                              │
-└──────────────────────────────┴──────────────────────────────┘
-```
-
----
-
 ## 🎯 Sobre Este Repositório
 
 Este repositório contém **apenas o site de apresentação** (showcase) do Sistema de Checklist. O código-fonte original do sistema (backend + frontend) não está incluído — este projeto serve como vitrine pública explicando a arquitetura, decisões técnicas e funcionamento do sistema.
