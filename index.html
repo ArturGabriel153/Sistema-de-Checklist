@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Checklist — Showcase</title>
+  <meta name="description" content="Sistema full-stack de gestão de checklists operacionais para redes de filiais. React + Node.js + Supabase + GSAP." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <div class="nav-logo-icon">✓</div>
+        <span>Checklist<strong>System</strong></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#arquitetura">Arquitetura</a></li>
+        <li><a href="#codigo">Código</a></li>
+      </ul>
+      <button class="theme-btn" id="themeToggle" title="Alternar tema">🌙</button>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ════════════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-particles" id="particles"></div>
+
+    <div class="hero-left">
+      <span class="hero-badge" id="heroBadge">Full-Stack · React + Node.js + Supabase</span>
+      <h1 class="hero-title">
+        <span id="heroLine1">Sistema de</span>
+        <span id="heroLine2">Checklist<span class="accent">.</span></span>
+      </h1>
+      <p class="hero-sub" id="heroSub">
+        Gestão operacional de checklists para redes de filiais — com controle
+        de ocorrências, relatórios em PDF e notificações em tempo real.
+      </p>
+      <div class="hero-tags" id="heroTags">
+        <span class="tag blue">React 18</span>
+        <span class="tag yellow">GSAP 3</span>
+        <span class="tag teal">Node.js</span>
+        <span class="tag green">Supabase</span>
+        <span class="tag purple">JWT Auth</span>
+        <span class="tag orange">Nodemailer</span>
+      </div>
+      <div class="hero-ctas" id="heroCtas">
+        <a href="#features" class="cta-primary">Ver Funcionalidades ↓</a>
+        <a href="#codigo" class="cta-outline">Ver Código</a>
+      </div>
+    </div>
+
+    <div class="hero-right" id="heroMockup">
+      <div class="mockup-window">
+        <div class="mockup-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="mockup-url">localhost:5173/master</span>
+        </div>
+        <div class="mockup-body">
+          <aside class="mock-sidebar">
+            <div class="mock-brand">✓ Checklist</div>
+            <a class="mock-item active">📊 Dashboard</a>
+            <a class="mock-item">📋 Checklists</a>
+            <a class="mock-item">📤 Envios</a>
+            <a class="mock-item warn">⚠️ Ocorrências<span class="mock-badge">3</span></a>
+            <a class="mock-item">🏢 Filiais</a>
+            <a class="mock-item">👥 Usuários</a>
+            <a class="mock-item">📄 Relatório</a>
+          </aside>
+          <div class="mock-main">
+            <div class="mock-topbar">
+              <span class="mock-title">Dashboard</span>
+              <div class="mock-topbar-right">
+                <span class="mock-bell">🔔<span class="notif-dot"></span></span>
+                <div class="mock-avatar">M</div>
+              </div>
+            </div>
+            <div class="mock-content">
+              <div class="mock-alert">⚠️ 3 ocorrências em aberto · <strong>1 atrasada</strong></div>
+              <div class="mock-stats">
+                <div class="mock-stat blue"><b>12</b><small>Enviados</small></div>
+                <div class="mock-stat orange"><b>3</b><small>Pendentes</small></div>
+                <div class="mock-stat blue2"><b>7</b><small>Respondidos</small></div>
+                <div class="mock-stat green"><b>2</b><small>Concluídos</small></div>
+              </div>
+              <div class="mock-section-title">Por Filial</div>
+              <div class="mock-table">
+                <div class="mock-row"><span>Filial Centro</span><span class="mk-badge green">2 concluídos</span></div>
+                <div class="mock-row"><span>Filial Norte</span><span class="mk-badge orange">1 pendente</span></div>
+                <div class="mock-row"><span>Filial Sul</span><span class="mk-badge red">⚠️ 2 ocorrências</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ STATS ═══════════════════════════════════════════════════ -->
+  <section class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-pill"><span class="count" data-to="2">0</span><small>Perfis de acesso</small></div>
+      <div class="stat-pill"><span class="count" data-to="7">0</span><small>Módulos</small></div>
+      <div class="stat-pill"><span class="count" data-to="8">0</span><small>Rotas de API</small></div>
+      <div class="stat-pill"><span class="count" data-to="100">0</span><small>% Responsivo</small></div>
+      <div class="stat-pill"><span class="count" data-to="6">0</span><small>Tipos de notif.</small></div>
+    </div>
+  </section>
+
+  <!-- ══ SOBRE ════════════════════════════════════════════════════ -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <header class="section-header reveal">
+        <span class="sec-tag">O Projeto</span>
+        <h2>O que é o Sistema de Checklist?</h2>
+        <p>Uma plataforma completa para gerenciar checklists operacionais entre matriz e filiais, com rastreamento de ocorrências e fluxo de aprovação.</p>
+      </header>
+      <div class="cards-2x2">
+        <div class="info-card reveal-left">
+          <div class="info-icon">🏗️</div>
+          <h3>Problema Resolvido</h3>
+          <p>Empresas com múltiplas filiais precisam garantir que procedimentos operacionais sejam cumpridos. O sistema digitaliza esse processo com rastreabilidade completa e alertas automáticos.</p>
+        </div>
+        <div class="info-card reveal-right">
+          <div class="info-icon">⚙️</div>
+          <h3>Como Funciona</h3>
+          <p>O <strong>Master</strong> cria templates e os envia às filiais. O <strong>Gerente</strong> responde com fotos e observações. O Master analisa, registra ocorrências e conclui o ciclo.</p>
+        </div>
+        <div class="info-card reveal-left">
+          <div class="info-icon">📱</div>
+          <h3>Mobile-First</h3>
+          <p>Interface totalmente responsiva com navegação inferior para mobile, header fixo e suporte a <code>safe-area-inset</code> para iPhones. Funciona em qualquer dispositivo.</p>
+        </div>
+        <div class="info-card reveal-right">
+          <div class="info-icon">🌙</div>
+          <h3>Tema Escuro / Claro</h3>
+          <p>Suporte completo a dark mode via <code>data-theme="dark"</code> com variáveis CSS. Transições suaves de 0.3s em todos os componentes — sem flash de tema.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FEATURES ═════════════════════════════════════════════════ -->
+  <section class="section alt" id="features">
+    <div class="container">
+      <header class="section-header reveal">
+        <span class="sec-tag">Funcionalidades</span>
+        <h2>O que o sistema faz</h2>
+        <p>Seis módulos integrados cobrindo todo o ciclo de vida operacional de uma rede de filiais.</p>
+      </header>
+      <div class="features-grid">
+
+        <div class="feat-card reveal-card" data-d="0">
+          <div class="feat-icon-wrap blue"><span>📋</span></div>
+          <h3>Templates de Checklist</h3>
+          <p>Modelos reutilizáveis com itens organizados por setores. Dois tipos: padrão e setorizado — com agrupamento visual e colapso por área.</p>
+          <ul>
+            <li>✓ Criação e edição de templates</li>
+            <li>✓ Organização por setores</li>
+            <li>✓ Desativação lógica (soft delete)</li>
+          </ul>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.08">
+          <div class="feat-icon-wrap yellow"><span>📤</span></div>
+          <h3>Envio para Filiais</h3>
+          <p>O Master seleciona a filial, define data agendada e escreve observações. O gerente recebe e-mail automático e notificação in-app instantaneamente.</p>
+          <ul>
+            <li>✓ Data agendada</li>
+            <li>✓ E-mail automático via Nodemailer</li>
+            <li>✓ Notificação in-app</li>
+          </ul>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.16">
+          <div class="feat-icon-wrap green"><span>✅</span></div>
+          <h3>Resposta do Gerente</h3>
+          <p>Gerentes respondem item a item com status Conforme/Não Conforme, observação obrigatória e upload de até 5 fotos. Barra de progresso em tempo real.</p>
+          <ul>
+            <li>✓ Upload de até 5 fotos/item</li>
+            <li>✓ Progresso visual em tempo real</li>
+            <li>✓ Validação completa antes de enviar</li>
+          </ul>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.24">
+          <div class="feat-icon-wrap red"><span>⚠️</span></div>
+          <h3>Ocorrências com Kanban</h3>
+          <p>Registre e acompanhe problemas em fluxo estruturado: Pendente Aprovação → Em Execução → Resolvido → Confirmado. Com histórico rastreável e transferências entre masters.</p>
+          <ul>
+            <li>✓ Fluxo de aprovação master</li>
+            <li>✓ Prazo com alertas de atraso</li>
+            <li>✓ Transferência entre masters</li>
+          </ul>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.32">
+          <div class="feat-icon-wrap purple"><span>📊</span></div>
+          <h3>Dashboard &amp; Relatórios</h3>
+          <p>Dashboard com resumo por filial, filtros de data e alertas de ocorrências abertas. Exportação de relatórios em PDF no cliente com jsPDF + autoTable.</p>
+          <ul>
+            <li>✓ Filtro por período de datas</li>
+            <li>✓ Exportação PDF no cliente</li>
+            <li>✓ Animações GSAP com stagger</li>
+          </ul>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.40">
+          <div class="feat-icon-wrap orange"><span>🔔</span></div>
+          <h3>Notificações Duplas</h3>
+          <p>Sistema híbrido: e-mails transacionais via Nodemailer para cada evento relevante e notificações in-app com sino de alerta. Suporte a @menções entre masters nas ocorrências.</p>
+          <ul>
+            <li>✓ 6 tipos de e-mail transacional</li>
+            <li>✓ Sino in-app em tempo real</li>
+            <li>✓ @Menções entre masters</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FLUXO ════════════════════════════════════════════════════ -->
+  <section class="section" id="fluxo">
+    <div class="container">
+      <header class="section-header reveal">
+        <span class="sec-tag">Fluxo Operacional</span>
+        <h2>Como funciona na prática</h2>
+        <p>O ciclo completo — do template à conclusão — com todos os atores envolvidos.</p>
+      </header>
+      <div class="flow-wrap">
+        <div class="flow-step reveal-card" data-d="0">
+          <div class="flow-num">1</div>
+          <div class="flow-body">
+            <span class="flow-role master">Master</span>
+            <h3>Cria Template</h3>
+            <p>Define título, tipo (padrão ou setorizado) e lista os itens a verificar, organizados por setor.</p>
+          </div>
+        </div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step reveal-card" data-d="0.10">
+          <div class="flow-num">2</div>
+          <div class="flow-body">
+            <span class="flow-role master">Master</span>
+            <h3>Envia à Filial</h3>
+            <p>Seleciona filial, data agendada e observações. Gerente recebe e-mail automático.</p>
+          </div>
+        </div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step reveal-card" data-d="0.20">
+          <div class="flow-num">3</div>
+          <div class="flow-body">
+            <span class="flow-role gerente">Gerente</span>
+            <h3>Responde</h3>
+            <p>Marca cada item como Conforme/Não Conforme com foto obrigatória e observação.</p>
+          </div>
+        </div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step reveal-card" data-d="0.30">
+          <div class="flow-num">4</div>
+          <div class="flow-body">
+            <span class="flow-role master">Master</span>
+            <h3>Analisa &amp; Ocorrências</h3>
+            <p>Revisa respostas e registra ocorrências para itens não conformes com prazo.</p>
+          </div>
+        </div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step reveal-card" data-d="0.40">
+          <div class="flow-num">5</div>
+          <div class="flow-body">
+            <span class="flow-role done">Concluído</span>
+            <h3>Conclusão</h3>
+            <p>Após todas as ocorrências confirmadas, o master conclui o checklist com data e hora.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ STACK ════════════════════════════════════════════════════ -->
+  <section class="section alt" id="stack">
+    <div class="container">
+      <header class="section-header reveal">
+        <span class="sec-tag">Stack Técnica</span>
+        <h2>Tecnologias utilizadas</h2>
+        <p>Stack moderna escolhida para performance, DX e facilidade de deploy independente.</p>
+      </header>
+      <div class="stack-grid">
+
+        <div class="stack-col reveal-left">
+          <div class="stack-col-head"><span>⚛️</span><h3>Frontend</h3></div>
+          <div class="stack-list">
+            <div class="stack-row">
+              <span class="si">⚡</span>
+              <div><strong>React 18 + Vite 5</strong><p>SPA com roteamento via React Router v6. HMR instantâneo e build otimizado com Rollup.</p></div>
+            </div>
+            <div class="stack-row gsap-row">
+              <span class="si">🎬</span>
+              <div><strong>GSAP 3</strong><p>Animações de entrada, stagger em cards/tabelas, <code>gsap.context()</code> com cleanup automático.</p></div>
+            </div>
+            <div class="stack-row">
+              <span class="si">🌐</span>
+              <div><strong>Axios</strong><p>Cliente HTTP com interceptor que injeta o token JWT em todas as requisições autenticadas.</p></div>
+            </div>
+            <div class="stack-row">
+              <span class="si">📄</span>
+              <div><strong>jsPDF + AutoTable</strong><p>Geração de relatórios em PDF diretamente no navegador, sem nenhuma chamada ao backend.</p></div>
+            </div>
+            <div class="stack-row">
+              <span class="si">🔔</span>
+              <div><strong>React Hot Toast</strong><p>Feedback visual imediato para ações de sucesso, erro e validação.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack-col reveal-right">
+          <div class="stack-col-head"><span>🖥️</span><h3>Backend</h3></div>
+          <div class="stack-list">
+            <div class="stack-row">
+              <span class="si">🟢</span>
+              <div><strong>Node.js + Express</strong><p>API REST com roteamento modular por entidade. CORS e payload de até 20MB configurados.</p></div>
+            </div>
+            <div class="stack-row">
+              <span class="si">🔐</span>
+              <div><strong>JWT + bcryptjs</strong><p>Autenticação stateless. Senhas com hash bcrypt (salt 10). Middleware de role guard para masters.</p></div>
+            </div>
+            <div class="stack-row">
+              <span class="si">🗄️</span>
+              <div><strong>Supabase</strong><p>PostgreSQL gerenciado + Storage para arquivos. SDK oficial Node.js com queries encadeadas.</p></div>
+            </div>
+            <div class="stack-row">
+              <span class="si">📧</span>
+              <div><strong>Nodemailer</strong><p>6 tipos de e-mail transacional: novo checklist, resposta, ocorrência, aprovação, devolução e confirmação.</p></div>
+            </div>
+            <div class="stack-row">
+              <span class="si">📎</span>
+              <div><strong>Multer</strong><p>Upload de fotos por item do checklist e por ocorrência, com limite de 20MB por request.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack-col reveal-left">
+          <div class="stack-col-head"><span>☁️</span><h3>Deploy</h3></div>
+          <div class="stack-list">
+            <div class="stack-row">
+              <span class="si">▲</span>
+              <div><strong>Vercel (Frontend)</strong><p>Deploy automático via Git. SPA routing via <code>vercel.json</code> com rewrite para <code>index.html</code>.</p></div>
+            </div>
+            <div class="stack-row">
+              <span class="si">🚀</span>
+              <div><strong>Render (Backend)</strong><p>Web service Node.js com auto-deploy via <code>render.yaml</code>. Health check em <code>/health</code>.</p></div>
+            </div>
+            <div class="stack-row">
+              <span class="si">🌿</span>
+              <div><strong>Supabase Cloud</strong><p>PostgreSQL + Storage gerenciados. Row Level Security configurado por tabela.</p></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PERFIS ═══════════════════════════════════════════════════ -->
+  <section class="section" id="perfis">
+    <div class="container">
+      <header class="section-header reveal">
+        <span class="sec-tag">Perfis de Acesso</span>
+        <h2>Master vs Gerente</h2>
+        <p>Dois níveis de acesso com permissões distintas, controlados por middleware JWT no backend.</p>
+      </header>
+      <div class="perfis-grid">
+        <div class="perfil-card master-card reveal-left">
+          <div class="perfil-head">
+            <div class="perfil-av master-av">M</div>
+            <div><h3>Master</h3><p>Administrador da plataforma</p></div>
+          </div>
+          <ul class="perm-list">
+            <li class="ok">Criar e editar templates de checklist</li>
+            <li class="ok">Enviar checklists para qualquer filial</li>
+            <li class="ok">Analisar respostas e concluir ciclos</li>
+            <li class="ok">Registrar ocorrências em checklists</li>
+            <li class="ok">Aprovar, devolver e transferir ocorrências</li>
+            <li class="ok">Confirmar resoluções do gerente</li>
+            <li class="ok">Gerenciar filiais e usuários</li>
+            <li class="ok">Exportar relatórios em PDF</li>
+            <li class="ok">Dashboard com visão de todas as filiais</li>
+            <li class="ok">@Mencionar outros masters em ocorrências</li>
+          </ul>
+        </div>
+        <div class="perfil-card gerente-card reveal-right">
+          <div class="perfil-head">
+            <div class="perfil-av gerente-av">G</div>
+            <div><h3>Gerente</h3><p>Responsável pela filial</p></div>
+          </div>
+          <ul class="perm-list">
+            <li class="ok">Ver checklists destinados à sua filial</li>
+            <li class="ok">Responder checklists (foto + observação)</li>
+            <li class="ok">Ver ocorrências da sua filial</li>
+            <li class="ok">Registrar ocorrências diretas para masters</li>
+            <li class="ok">Informar resolução de problemas</li>
+            <li class="ok">Dashboard da filial</li>
+            <li class="no">Sem acesso a dados de outras filiais</li>
+            <li class="no">Sem gestão de usuários ou filiais</li>
+            <li class="no">Sem criação ou edição de templates</li>
+            <li class="no">Sem exportação de relatórios</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ARQUITETURA ══════════════════════════════════════════════ -->
+  <section class="section alt" id="arquitetura">
+    <div class="container">
+      <header class="section-header reveal">
+        <span class="sec-tag">Arquitetura</span>
+        <h2>Como as peças se encaixam</h2>
+        <p>Arquitetura desacoplada com frontend SPA e backend REST totalmente separados e implantados de forma independente.</p>
+      </header>
+      <div class="arch reveal">
+        <div class="arch-layer client-layer">
+          <div class="arch-label">Client Layer</div>
+          <div class="arch-row">
+            <div class="arch-box"><span>⚛️</span><strong>React App</strong><small>Vite · React Router</small></div>
+            <div class="arch-box highlight"><span>🎬</span><strong>GSAP 3</strong><small>Animações UI</small></div>
+            <div class="arch-box"><span>📄</span><strong>jsPDF</strong><small>Relatórios PDF</small></div>
+          </div>
+        </div>
+        <div class="arch-connector">↓ HTTPS + JWT Bearer Token</div>
+        <div class="arch-layer api-layer">
+          <div class="arch-label">API Layer — Express</div>
+          <div class="arch-row">
+            <div class="arch-box"><span>🔐</span><strong>Auth Middleware</strong><small>JWT Verify · Role Guard</small></div>
+            <div class="arch-box"><span>🛣️</span><strong>8 Rotas REST</strong><small>/api/* módulos</small></div>
+            <div class="arch-box"><span>📧</span><strong>Email Service</strong><small>Nodemailer</small></div>
+          </div>
+        </div>
+        <div class="arch-connector">↓ Supabase JS SDK</div>
+        <div class="arch-layer db-layer">
+          <div class="arch-label">Data Layer — Supabase</div>
+          <div class="arch-row">
+            <div class="arch-box"><span>🐘</span><strong>PostgreSQL</strong><small>Dados relacionais</small></div>
+            <div class="arch-box"><span>📦</span><strong>Storage</strong><small>Fotos e arquivos</small></div>
+            <div class="arch-box"><span>🔒</span><strong>RLS</strong><small>Row Level Security</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CÓDIGO ═══════════════════════════════════════════════════ -->
+  <section class="section" id="codigo">
+    <div class="container">
+      <header class="section-header reveal">
+        <span class="sec-tag">Destaques de Código</span>
+        <h2>Partes interessantes do código</h2>
+        <p>Trechos reais do projeto com contexto e explicação técnica detalhada.</p>
+      </header>
+
+      <div class="tabs reveal" id="codeTabs">
+        <button class="tab active" data-tab="gsap">🎬 GSAP no Dashboard</button>
+        <button class="tab" data-tab="auth">🔐 JWT Middleware</button>
+        <button class="tab" data-tab="api">📊 Dashboard API</button>
+        <button class="tab" data-tab="submit">✅ Submit + Upload</button>
+      </div>
+
+      <div class="tab-panel active" id="panel-gsap">
+        <div class="code-meta reveal">
+          <code class="file-badge">frontend/src/pages/master/Dashboard.jsx</code>
+          <p>O Dashboard usa <code>gsap.context()</code> para escopar animações ao <code>containerRef</code>. Isso evita vazamento de seletores para fora do componente. O <code>ctx.revert()</code> no cleanup garante que animações pendentes sejam canceladas ao desmontar — padrão correto para GSAP + React.</p>
+        </div>
+        <pre><code class="language-javascript">useEffect(() => {
+  if (loading) return;
+
+  // gsap.context() escopa todos os seletores ao containerRef
+  // e permite cleanup automático com ctx.revert()
+  const ctx = gsap.context(() => {
+
+    // Header: fade simples após carregar dados
+    gsap.from('.dash-header', {
+      opacity: 0,
+      duration: 0.55,
+      ease: 'power3.out',
+      clearProps: 'opacity',  // ← remove o inline style após animar
+    });
+
+    // Cards de stats: stagger de 80ms entre cada card
+    gsap.from('.stat-card', {
+      opacity: 0,
+      stagger: 0.08,
+      duration: 0.5,
+      ease: 'power3.out',
+      delay: 0.1,
+      clearProps: 'opacity',
+    });
+
+    // Seção de ocorrências: entra depois dos cards
+    gsap.from('.occ-section', {
+      opacity: 0,
+      duration: 0.5,
+      ease: 'power2.out',
+      delay: 0.25,
+      clearProps: 'opacity',
+    });
+
+    // Linhas da tabela: stagger mais rápido (40ms)
+    // cria sensação de "preenchimento" da tabela
+    gsap.from('.table-data-row', {
+      opacity: 0,
+      stagger: 0.04,
+      duration: 0.35,
+      ease: 'power2.out',
+      delay: 0.5,
+      clearProps: 'opacity',
+    });
+
+  }, containerRef); // ← escopo ao ref do container
+
+  // Cleanup ao desmontar componente
+  return () => ctx.revert();
+
+}, [loading]); // ← só dispara quando os dados terminam de carregar</code></pre>
+      </div>
+
+      <div class="tab-panel" id="panel-auth">
+        <div class="code-meta reveal">
+          <code class="file-badge">backend/src/middlewares/auth.js</code>
+          <p>Middleware JWT enxuto. O token é extraído do header <code>Authorization: Bearer &lt;token&gt;</code>, verificado com a secret via <code>jwt.verify()</code> e o payload decodificado é injetado em <code>req.user</code>. O guard <code>somenteMaster</code> é aplicado em cima do <code>autenticar</code> nas rotas exclusivas de master.</p>
+        </div>
+        <pre><code class="language-javascript">const jwt = require('jsonwebtoken');
+
+// Autentica qualquer rota protegida
+function autenticar(req, res, next) {
+  const token = req.headers.authorization?.replace('Bearer ', '');
+  if (!token) return res.status(401).json({ error: 'Não autorizado' });
+
+  try {
+    // jwt.verify() valida assinatura + expiração em uma chamada
+    // O payload (id, role, filial_id, nome) fica disponível em req.user
+    req.user = jwt.verify(token, process.env.JWT_SECRET);
+    next();
+  } catch {
+    res.status(401).json({ error: 'Token inválido' });
+  }
+}
+
+// Guard adicional para rotas exclusivas do perfil master
+function somenteMaster(req, res, next) {
+  if (req.user?.role !== 'master')
+    return res.status(403).json({ error: 'Acesso restrito a masters' });
+  next();
+}
+
+module.exports = { autenticar, somenteMaster };
+
+// Uso nas rotas (composição de middlewares Express):
+// router.get('/',     autenticar,               listarHandler)
+// router.post('/',    autenticar, somenteMaster, criarHandler)
+// router.delete('/:id', autenticar, somenteMaster, removerHandler)</code></pre>
+      </div>
+
+      <div class="tab-panel" id="panel-api">
+        <div class="code-meta reveal">
+          <code class="file-badge">backend/src/routes/envios.js — GET /dashboard/resumo</code>
+          <p>O endpoint de dashboard agrega dados de múltiplas tabelas Supabase em uma única resposta. O ponto mais interessante é a detecção de atraso: uma ocorrência é "atrasada" se está em status ativo <em>e</em> o prazo já passou — calculado em JS após buscar tudo.</p>
+        </div>
+        <pre><code class="language-javascript">router.get('/dashboard/resumo', autenticar, somenteMaster, async (req, res) => {
+  const { data_inicio, data_fim } = req.query;
+
+  // 1. Carrega filiais ativas, envios do período e todos os problemas
+  const { data: filiais } = await supabase
+    .from('filiais').select('*').eq('ativa', true).order('nome');
+
+  let q = supabase.from('checklist_envios')
+    .select('filial_id, status, created_at');
+  if (data_inicio) q = q.gte('created_at', data_inicio);
+  if (data_fim)    q = q.lte('created_at', data_fim + 'T23:59:59');
+  const { data: envios }    = await q;
+  const { data: problemas } = await supabase
+    .from('problemas')
+    .select('filial_id, status, prazo, checklist_envios(filial_id)');
+
+  const today  = new Date().toISOString().split('T')[0];
+  const ATIVOS = ['aberto', 'em_execucao', 'resolvido_gerente'];
+
+  // Ocorrência atrasada = status ativo + prazo anterior a hoje
+  const isAtrasado = (p) =>
+    ATIVOS.includes(p.status) && p.prazo && p.prazo < today;
+
+  // 2. Agrega por filial em memória (mais rápido que N queries)
+  const resumo = filiais.map(f => {
+    const ef = envios.filter(e => e.filial_id === f.id);
+    const pf = problemas.filter(p =>
+      (p.filial_id || p.checklist_envios?.filial_id) === f.id
+    );
+    return {
+      filial:                 f,
+      total_envios:           ef.length,
+      pendentes:              ef.filter(e => e.status === 'pendente').length,
+      respondidos:            ef.filter(e => e.status === 'respondido').length,
+      concluidos:             ef.filter(e => e.status === 'concluido').length,
+      ocorrencias_atrasadas:  pf.filter(p => isAtrasado(p)).length,
+      ocorrencias_concluidas: pf.filter(p => p.status === 'confirmado').length,
+    };
+  });
+
+  res.json({
+    data: resumo,
+    // Contagens globais para o alerta do topo do dashboard
+    globalAbertos:   problemas.filter(p => p.status !== 'confirmado').length,
+    globalAtrasadas: problemas.filter(p => isAtrasado(p)).length,
+  });
+});</code></pre>
+      </div>
+
+      <div class="tab-panel" id="panel-submit">
+        <div class="code-meta reveal">
+          <code class="file-badge">frontend/src/pages/gerente/Responder.jsx — submeter()</code>
+          <p>A submissão valida em cascata antes de qualquer chamada de rede. Após inserir as respostas, os uploads de fotos são disparados em <strong>paralelo</strong> com <code>Promise.all()</code> — significativamente mais rápido que sequencial quando há muitos itens com fotos.</p>
+        </div>
+        <pre><code class="language-javascript">const submeter = async () => {
+  const itens = envio.itens || [];
+
+  // Validação em cascata — para no primeiro problema encontrado
+  const semStatus = itens.filter(i => !respostas[i.id]?.status);
+  if (semStatus.length) {
+    toast.error(`Responda todos os itens (${semStatus.length} pendente(s))`);
+    return;
+  }
+  const semFoto = itens.filter(i => !arquivos[i.id]?.length);
+  if (semFoto.length) {
+    toast.error(`Adicione foto em ${semFoto.length} item(ns)`);
+    return;
+  }
+  const semObs = itens.filter(i => !respostas[i.id]?.observacao?.trim());
+  if (semObs.length) {
+    toast.error(`Observação obrigatória em ${semObs.length} item(ns)`);
+    return;
+  }
+
+  setSalvando(true);
+  try {
+    // 1. Envia todas as respostas de uma vez
+    //    O backend retorna os IDs inseridos para associar os uploads
+    const result = await enviosApi.responder(id, {
+      respostas: itens.map(item => ({
+        item_id:    item.id,
+        status:     respostas[item.id].status,
+        observacao: respostas[item.id].observacao,
+      }))
+    });
+
+    // 2. Monta os uploads de fotos e dispara TODOS em paralelo
+    //    Promise.all() é muito mais rápido que await em loop sequencial
+    const uploads = [];
+    for (const [itemId, files] of Object.entries(arquivos)) {
+      if (!files.length) continue;
+      const resp = result.respostas.find(r => r.item_id === itemId);
+      if (!resp) continue;
+      const fd = new FormData();
+      files.forEach(f => fd.append('arquivos', f));
+      fd.append('referencia_id', resp.id);
+      fd.append('tipo_referencia', 'resposta');
+      uploads.push(arquivosApi.upload(fd));
+    }
+    if (uploads.length) await Promise.all(uploads); // ← paralelo!
+
+    toast.success('Checklist respondido com sucesso!');
+    navigate('/gerente/checklists');
+  } catch (err) {
+    toast.error(err.response?.data?.erro || 'Erro ao enviar respostas');
+  } finally {
+    setSalvando(false);
+  }
+};</code></pre>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═══════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">✓ Sistema de Checklist</div>
+          <p>Gestão operacional de checklists para redes de filiais. Projeto full-stack com React, Node.js e Supabase.</p>
+          <div class="footer-tags">
+            <span>React</span><span>Node.js</span><span>Supabase</span><span>GSAP</span><span>Express</span>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Frontend</h4>
+          <ul>
+            <li>React 18</li><li>Vite 5</li><li>GSAP 3</li>
+            <li>React Router v6</li><li>jsPDF</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Backend</h4>
+          <ul>
+            <li>Node.js</li><li>Express</li><li>JWT</li>
+            <li>Supabase</li><li>Nodemailer</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Deploy</h4>
+          <ul>
+            <li>Vercel</li><li>Render</li>
+            <li>Supabase Cloud</li><li>GitHub</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Projeto Full-Stack · React + Node.js + Supabase · 2025</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop">↑</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
