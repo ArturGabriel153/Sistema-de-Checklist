@@ -2,8 +2,8 @@
 
 # ✓ Sistema de Checklist — Showcase
 
-**Site de apresentação técnica do projeto Sistema de Checklist**  
-Página estática com animações GSAP explicando a arquitetura, stack e código de um sistema full-stack de gestão operacional para redes de filiais.
+**Sistema interno de verificação de conformidade entre lojas**  
+Diretoria cria templates, envia checklists para as filiais, gerentes respondem com foto e observação por item — ocorrências viram fluxo rastreável até a resolução.
 
 <br/>
 
@@ -18,6 +18,23 @@ Página estática com animações GSAP explicando a arquitetura, stack e código
 ![Responsive](https://img.shields.io/badge/responsive-yes-34d399?style=flat-square)
 
 </div>
+
+---
+
+## 💼 Visão de Negócio
+
+> **Problema** — Verificação de conformidade entre filiais dependia de comunicação manual por mensageria e e-mail, sem padronização dos itens checados, sem foto como evidência e sem rastreabilidade até a resolução das ocorrências.
+>
+> **Solução** — Sistema interno que centraliza o ciclo: master cria template → envia à filial → gerente responde com foto e observação por item → master analisa, registra ocorrência → fluxo de resolução com notificações por e-mail.
+>
+> **Resultado** — Diretoria passa a ter visibilidade em tempo real da conformidade operacional, com histórico auditável, dashboard agregado e exportação em PDF.
+
+| | |
+|---|---|
+| **Contexto** | Comercial Maranguape — operação multi-loja |
+| **Usuários** | Diretoria + gerentes de loja |
+| **Substitui** | Comunicação manual via mensageria/e-mail |
+| **Status** | Apresentado à diretoria · em uso pela operação |
 
 ---
 
